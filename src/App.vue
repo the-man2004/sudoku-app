@@ -1,9 +1,10 @@
 <template>
-  <h1>{{ puzzleStore.title }}</h1>
+  <Header></Header>
 </template>
 
 <script setup>
 import { usePuzzleStore } from "./store/index";
+import Header from "./components/Header.vue";
 
 const puzzleStore = usePuzzleStore();
 </script>
