@@ -12,6 +12,7 @@
 
 <style scoped>
 nav {
+  margin-bottom: 30px;
   padding: 15px 0;
 
   grid-area: nav;

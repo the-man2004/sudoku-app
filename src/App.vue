@@ -1,12 +1,19 @@
 <template>
   <Header></Header>
+  <Game></Game>
 </template>
 
 <script setup>
+import { onMounted } from "vue";
 import { usePuzzleStore } from "./store/index";
 import Header from "./components/Header.vue";
+import Game from "./components/Game.vue";
 
 const puzzleStore = usePuzzleStore();
+
+onMounted(() => {
+  puzzleStore.fetchGame();
+});
 </script>
 
 <style>
