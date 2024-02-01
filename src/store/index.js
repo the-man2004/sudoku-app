@@ -3,6 +3,8 @@ import { defineStore } from "pinia";
 export const usePuzzleStore = defineStore("puzzleStore", {
   state: () => {
     return {
+      isLoading: false,
+
       puzzle: null,
       solution: null,
       difficulty: null,
@@ -10,9 +12,18 @@ export const usePuzzleStore = defineStore("puzzleStore", {
       mistakes: null,
     };
   },
-  getters: {},
+  getters: {
+    puzzleArr: (state) => {
+      let finalArr = [];
+
+      state.puzzle.forEach((el) => finalArr.push(...el));
+
+      return finalArr;
+    },
+  },
   actions: {
     async fetchGame() {
+      this.isLoading = true;
       this.mistakes = 0;
 
       try {
@@ -33,8 +44,12 @@ export const usePuzzleStore = defineStore("puzzleStore", {
         this.difficulty = responseData.newboard.grids[0].difficulty;
 
         console.log(this.puzzle, this.solution, this.difficulty);
+
+        this.isLoading = false;
       } catch (err) {
         console.log(err.message);
+
+        this.isLoading = false;
       }
     },
   },
