@@ -1,8 +1,12 @@
 <template>
-  <h1>Hello world!</h1>
+  <h1>{{ puzzleStore.title }}</h1>
 </template>
 
-<script setup></script>
+<script setup>
+import { usePuzzleStore } from "./store/index";
+
+const puzzleStore = usePuzzleStore();
+</script>
 
 <style>
 * {
@@ -18,7 +22,7 @@
 
   min-height: 100vh;
 
-  background: linear-gradient(120deg, #b1b6e7, #dda5a5);
+  background: linear-gradient(145deg, #93a5cf, #e4efe9);
   color: #2c3e50;
 }
 </style>
