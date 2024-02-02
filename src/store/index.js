@@ -10,6 +10,7 @@ export const usePuzzleStore = defineStore("puzzleStore", {
       difficulty: null,
 
       mistakes: null,
+      selectedItem: null,
     };
   },
   getters: {
@@ -22,6 +23,12 @@ export const usePuzzleStore = defineStore("puzzleStore", {
     },
   },
   actions: {
+    setSelectedItem(val) {
+      console.log(val);
+
+      this.selectedItem = val;
+    },
+
     async fetchGame() {
       this.isLoading = true;
       this.mistakes = 0;

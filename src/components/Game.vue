@@ -37,8 +37,37 @@ import { usePuzzleStore } from "../store/index";
 
 const puzzleStore = usePuzzleStore();
 
+// Functions
 const handleItemClick = (event) => {
-  console.log(event.target.dataset.id);
+  const items = [...document.querySelectorAll(".item")];
+
+  // Remove styling
+  items.forEach((el) => {
+    el.style.color = "black";
+    el.style.background = "white";
+  });
+
+  // Checks if item has no value
+  if (event.target.innerText === "") {
+    puzzleStore.setSelectedItem(event.target.dataset.id);
+
+    event.target.style.color = "white";
+    event.target.style.background = "rgb(72, 72, 255)";
+  }
+
+  // Checks if item has a value
+  if (event.target.innerText !== "") {
+    puzzleStore.setSelectedItem(null);
+
+    const selectedNum = event.target.innerText;
+
+    const filteredItems = items.filter((el) => +el.innerText === +selectedNum);
+
+    filteredItems.forEach((el) => {
+      el.style.color = "white";
+      el.style.background = "rgb(72, 72, 255)";
+    });
+  }
 };
 </script>
 
@@ -71,7 +100,7 @@ const handleItemClick = (event) => {
   background: rgba(0, 0, 0, 0.3);
 }
 
-.item {
+.game-board .item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,6 +114,8 @@ const handleItemClick = (event) => {
 
   cursor: pointer;
   user-select: none;
+
+  transition: all 300ms ease;
 }
 
 /* Number buttons */
@@ -103,9 +134,15 @@ const handleItemClick = (event) => {
 
   border-radius: 5px;
 
-  background: blue;
+  background: rgb(72, 72, 255);
   color: white;
 
   cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.numpad button:hover,
+.numpad button:focus {
+  background: blue;
 }
 </style>
