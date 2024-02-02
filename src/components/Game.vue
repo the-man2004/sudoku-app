@@ -177,7 +177,7 @@ const handleBtnClick = (num) => {
 
   aspect-ratio: 1 / 1;
 
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
 
   border: 5px solid white;
@@ -215,5 +215,11 @@ const handleBtnClick = (num) => {
 .numpad button:hover,
 .numpad button:focus {
   background: blue;
+}
+
+@media (min-width: 500px) {
+  .game-board .item {
+    font-size: 1.5rem;
+  }
 }
 </style>
