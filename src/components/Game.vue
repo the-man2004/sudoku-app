@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="puzzleStore.isLoading === false && puzzleStore.puzzle !== null"
-    class="game"
-  >
+  <div class="game">
     <div class="indicators">
       <span>Difficulty: {{ puzzleStore.difficulty }}</span>
       <span>Mistakes: {{ puzzleStore.mistakes }}/3</span>

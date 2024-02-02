@@ -10,6 +10,7 @@ export const usePuzzleStore = defineStore("puzzleStore", {
       difficulty: null,
 
       mistakes: null,
+      gameOver: false,
       selectedItem: null,
     };
   },
@@ -38,11 +39,16 @@ export const usePuzzleStore = defineStore("puzzleStore", {
 
     increaseMistakes() {
       this.mistakes++;
+
+      if (this.mistakes >= 3) {
+        this.gameOver = true;
+      }
     },
 
     async fetchGame() {
       this.isLoading = true;
       this.mistakes = 0;
+      this.gameOver = false;
 
       try {
         const response = await fetch(
