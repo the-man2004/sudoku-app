@@ -18,6 +18,17 @@
         {{ number === 0 ? "" : number }}
       </div>
     </div>
+    <div class="numpad">
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+    </div>
   </div>
 </template>
 
@@ -71,5 +82,30 @@ const handleItemClick = (event) => {
   font-weight: 600;
 
   background: white;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Number buttons */
+.numpad {
+  margin: 15px 0;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 5px;
+}
+
+.numpad button {
+  aspect-ratio: 1 / 1;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  border-radius: 5px;
+
+  background: blue;
+  color: white;
+
+  cursor: pointer;
 }
 </style>
