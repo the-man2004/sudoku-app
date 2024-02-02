@@ -85,7 +85,7 @@ const handleBtnClick = (num) => {
 
       const item = document.getElementById(puzzleStore.selectedItem.dataset.id);
       item.innerText = num;
-      removeStyling();
+      // removeStyling();
     } else {
       console.log("Wrong!");
 
@@ -113,15 +113,45 @@ const handleBtnClick = (num) => {
 }
 
 .game-board {
-  padding: 5px;
+  position: relative;
 
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   gap: 5px;
 
   aspect-ratio: 1 / 1;
+  border: 5px solid black;
+  z-index: 10;
 
   background: rgba(0, 0, 0, 0.3);
+}
+
+.game-board::after {
+  content: "";
+  position: absolute;
+  top: calc(33% - 2.5px);
+  bottom: calc(33% - 2.5px);
+  left: 0;
+  right: 0;
+
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+
+  z-index: -1;
+}
+
+.game-board::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(33% - 2.5px);
+  right: calc(33% - 2.5px);
+
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+
+  z-index: -1;
 }
 
 .game-board .item {
