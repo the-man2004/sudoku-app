@@ -5,12 +5,13 @@
   >
     <div class="indicators">
       <span>Difficulty: {{ puzzleStore.difficulty }}</span>
-      <span>Mistakes: {{ 0 }}/3</span>
+      <span>Mistakes: {{ puzzleStore.mistakes }}/3</span>
     </div>
     <div class="game-board">
       <div
         v-for="(number, index) in puzzleStore.puzzleArr"
         :key="index"
+        :id="index"
         :data-id="index"
         @click="handleItemClick($event)"
         class="item"
@@ -19,15 +20,15 @@
       </div>
     </div>
     <div class="numpad">
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>4</button>
-      <button>5</button>
-      <button>6</button>
-      <button>7</button>
-      <button>8</button>
-      <button>9</button>
+      <button @click="handleBtnClick(1)">1</button>
+      <button @click="handleBtnClick(2)">2</button>
+      <button @click="handleBtnClick(3)">3</button>
+      <button @click="handleBtnClick(4)">4</button>
+      <button @click="handleBtnClick(5)">5</button>
+      <button @click="handleBtnClick(6)">6</button>
+      <button @click="handleBtnClick(7)">7</button>
+      <button @click="handleBtnClick(8)">8</button>
+      <button @click="handleBtnClick(9)">9</button>
     </div>
   </div>
 </template>
@@ -38,7 +39,7 @@ import { usePuzzleStore } from "../store/index";
 const puzzleStore = usePuzzleStore();
 
 // Functions
-const handleItemClick = (event) => {
+const removeStyling = () => {
   const items = [...document.querySelectorAll(".item")];
 
   // Remove styling
@@ -46,10 +47,17 @@ const handleItemClick = (event) => {
     el.style.color = "black";
     el.style.background = "white";
   });
+};
+
+const handleItemClick = (event) => {
+  const items = [...document.querySelectorAll(".item")];
+
+  // Remove styling
+  removeStyling();
 
   // Checks if item has no value
   if (event.target.innerText === "") {
-    puzzleStore.setSelectedItem(event.target.dataset.id);
+    puzzleStore.setSelectedItem(event.target);
 
     event.target.style.color = "white";
     event.target.style.background = "rgb(72, 72, 255)";
@@ -67,6 +75,22 @@ const handleItemClick = (event) => {
       el.style.color = "white";
       el.style.background = "rgb(72, 72, 255)";
     });
+  }
+};
+
+const handleBtnClick = (num) => {
+  if (puzzleStore.selectedItem !== null) {
+    if (puzzleStore.solutionArr[puzzleStore.selectedItem.dataset.id] === num) {
+      console.log("Correct!");
+
+      const item = document.getElementById(puzzleStore.selectedItem.dataset.id);
+      item.innerText = num;
+      removeStyling();
+    } else {
+      console.log("Wrong!");
+
+      puzzleStore.increaseMistakes();
+    }
   }
 };
 </script>

@@ -21,12 +21,23 @@ export const usePuzzleStore = defineStore("puzzleStore", {
 
       return finalArr;
     },
+    solutionArr: (state) => {
+      let finalArr = [];
+
+      state.solution.forEach((el) => finalArr.push(...el));
+
+      return finalArr;
+    },
   },
   actions: {
     setSelectedItem(val) {
       console.log(val);
 
       this.selectedItem = val;
+    },
+
+    increaseMistakes() {
+      this.mistakes++;
     },
 
     async fetchGame() {
