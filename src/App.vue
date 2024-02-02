@@ -1,11 +1,7 @@
 <template>
   <Header></Header>
   <Game
-    v-if="
-      puzzleStore.isLoading === false &&
-      puzzleStore.puzzle !== null &&
-      puzzleStore.gameOver !== true
-    "
+    v-if="puzzleStore.isLoading === false && puzzleStore.puzzle !== null"
   ></Game>
   <GameOver v-if="puzzleStore.gameOver === true"></GameOver>
 </template>

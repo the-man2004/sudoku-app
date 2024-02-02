@@ -37,12 +37,16 @@ const puzzleStore = usePuzzleStore();
 
 // Functions
 const removeStyling = () => {
+  const gameBoard = document.querySelector(".game-board");
   const items = [...document.querySelectorAll(".item")];
 
   // Remove styling
+  gameBoard.style.background = "rgba(0, 0, 0, 0.3)";
+
   items.forEach((el) => {
     el.style.color = "black";
     el.style.background = "white";
+    // el.style.border = "none";
   });
 };
 
@@ -75,17 +79,32 @@ const handleItemClick = (event) => {
   }
 };
 
+const showError = (item) => {
+  const gameBoard = document.querySelector(".game-board");
+
+  gameBoard.style.background = "rgba(255, 0, 0, 0.2)";
+
+  item.style.background = "red";
+  item.style.border = "5px solid white";
+
+  setTimeout(() => {
+    removeStyling();
+  }, 1000);
+};
+
 const handleBtnClick = (num) => {
+  const item = document.getElementById(puzzleStore.selectedItem.dataset.id);
+
   if (puzzleStore.selectedItem !== null) {
     if (puzzleStore.solutionArr[puzzleStore.selectedItem.dataset.id] === num) {
       console.log("Correct!");
 
-      const item = document.getElementById(puzzleStore.selectedItem.dataset.id);
       item.innerText = num;
       // removeStyling();
     } else {
       console.log("Wrong!");
 
+      showError(item);
       puzzleStore.increaseMistakes();
     }
   }
@@ -161,6 +180,7 @@ const handleBtnClick = (num) => {
   font-size: 1.5rem;
   font-weight: 600;
 
+  border: 5px solid white;
   background: white;
 
   cursor: pointer;
