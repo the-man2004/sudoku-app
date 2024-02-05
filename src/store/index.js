@@ -11,29 +11,26 @@ export const usePuzzleStore = defineStore("puzzleStore", {
 
       mistakes: null,
       gameOver: false,
+      finnished: false,
       selectedItem: null,
     };
   },
   getters: {
-    puzzleArr: (state) => {
-      let finalArr = [];
-
-      state.puzzle.forEach((el) => finalArr.push(...el));
-
-      return finalArr;
-    },
-    solutionArr: (state) => {
-      let finalArr = [];
-
-      state.solution.forEach((el) => finalArr.push(...el));
-
-      return finalArr;
-    },
+    puzzleArr: (state) => state.puzzle,
+    solutionArr: (state) => state.solution,
   },
   actions: {
-    setSelectedItem(val) {
-      console.log(val);
+    checkVictory() {
+      if (!this.puzzle.includes(0)) {
+        console.log("You won!!!");
+      }
+    },
 
+    addPuzzlePiece(position, val) {
+      this.puzzle[position] = val;
+    },
+
+    setSelectedItem(val) {
       this.selectedItem = val;
     },
 
@@ -45,10 +42,19 @@ export const usePuzzleStore = defineStore("puzzleStore", {
       }
     },
 
+    unpackArr(array) {
+      let finalArr = [];
+
+      array.forEach((el) => finalArr.push(...el));
+
+      return finalArr;
+    },
+
     async fetchGame() {
       this.isLoading = true;
       this.mistakes = 0;
       this.gameOver = false;
+      this.finnished = false;
 
       try {
         const response = await fetch(
@@ -63,8 +69,8 @@ export const usePuzzleStore = defineStore("puzzleStore", {
 
         console.log(responseData);
 
-        this.puzzle = responseData.newboard.grids[0].value;
-        this.solution = responseData.newboard.grids[0].solution;
+        this.puzzle = this.unpackArr(responseData.newboard.grids[0].value);
+        this.solution = this.unpackArr(responseData.newboard.grids[0].solution);
         this.difficulty = responseData.newboard.grids[0].difficulty;
 
         console.log(this.puzzle, this.solution, this.difficulty);

@@ -94,13 +94,14 @@ const showError = (item) => {
 
 const handleBtnClick = (num) => {
   const item = document.getElementById(puzzleStore.selectedItem.dataset.id);
+  const id = puzzleStore.selectedItem.dataset.id;
 
   if (puzzleStore.selectedItem !== null) {
-    if (puzzleStore.solutionArr[puzzleStore.selectedItem.dataset.id] === num) {
+    if (puzzleStore.solutionArr[id] === num) {
       console.log("Correct!");
 
-      item.innerText = num;
-      // removeStyling();
+      puzzleStore.addPuzzlePiece(id, num);
+      puzzleStore.checkVictory();
     } else {
       console.log("Wrong!");
 
