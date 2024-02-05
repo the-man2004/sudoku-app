@@ -3,12 +3,16 @@
     <nav>
       <span class="logo">Sudoki</span>
       <div class="navigation-buttons">
-        <button class="new-game">New Game</button>
+        <NewGameBtn></NewGameBtn>
         <button class="material-symbols-outlined info">info</button>
       </div>
     </nav>
   </div>
 </template>
+
+<script setup>
+import NewGameBtn from "./NewGameBtn.vue";
+</script>
 
 <style scoped>
 nav {
