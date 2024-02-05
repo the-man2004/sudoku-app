@@ -56,6 +56,7 @@ import NewGameBtn from "./NewGameBtn.vue";
   margin-bottom: 30px;
 
   font-size: 2rem;
+  font-weight: 800;
 }
 
 .game-over p {

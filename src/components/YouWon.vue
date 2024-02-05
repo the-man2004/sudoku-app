@@ -58,6 +58,7 @@ import NewGameBtn from "./NewGameBtn.vue";
 
   color: rgb(135, 199, 40);
   font-size: 2rem;
+  font-weight: 800;
 }
 
 .congratulations p {
