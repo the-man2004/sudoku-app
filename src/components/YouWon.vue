@@ -1,9 +1,9 @@
 <template>
   <div class="backdrop"></div>
-  <div class="game-over">
+  <div class="congratulations">
     <div>
-      <h1>Game Over!</h1>
-      <p>You lost the game because you made 3 mistakes.</p>
+      <h1>Congratulations!</h1>
+      <p>You won the game</p>
       <div>
         <button @click="puzzleStore.fetchGame" class="new-game">
           New Game
@@ -30,12 +30,12 @@ const puzzleStore = usePuzzleStore();
   z-index: 10;
 }
 
-.game-over {
+.congratulations {
   padding: 0 1rem;
   margin: 1rem;
 }
 
-.game-over > div {
+.congratulations > div {
   position: absolute;
   inset: 1rem;
 
@@ -52,17 +52,19 @@ const puzzleStore = usePuzzleStore();
   border-radius: 15px;
 
   background: white;
+  border: 5px solid rgb(135, 199, 40);
 
   z-index: 15;
 }
 
-.game-over h1 {
+.congratulations h1 {
   margin-bottom: 30px;
 
+  color: rgb(135, 199, 40);
   font-size: 2rem;
 }
 
-.game-over p {
+.congratulations p {
   margin-bottom: 30px;
 
   font-size: 1.2rem;

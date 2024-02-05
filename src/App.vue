@@ -4,6 +4,7 @@
     v-if="puzzleStore.isLoading === false && puzzleStore.puzzle !== null"
   ></Game>
   <GameOver v-if="puzzleStore.gameOver === true"></GameOver>
+  <YouWon v-if="puzzleStore.finnished === true"></YouWon>
 </template>
 
 <script setup>
@@ -12,6 +13,7 @@ import { usePuzzleStore } from "./store/index";
 import Header from "./components/Header.vue";
 import Game from "./components/Game.vue";
 import GameOver from "./components/GameOver.vue";
+import YouWon from "./components/YouWon.vue";
 
 const puzzleStore = usePuzzleStore();
 

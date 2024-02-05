@@ -23,6 +23,8 @@ export const usePuzzleStore = defineStore("puzzleStore", {
     checkVictory() {
       if (!this.puzzle.includes(0)) {
         console.log("You won!!!");
+
+        this.finnished = true;
       }
     },
 
