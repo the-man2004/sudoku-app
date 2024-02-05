@@ -1,4 +1,5 @@
 <template>
+  <div class="backdrop"></div>
   <div class="game-over">
     <div>
       <h1>Game Over!</h1>
@@ -19,18 +20,31 @@ const puzzleStore = usePuzzleStore();
 </script>
 
 <style scoped>
+.backdrop {
+  position: absolute;
+  inset: 0;
+
+  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.3);
+
+  z-index: 10;
+}
+
 .game-over {
   padding: 0 1rem;
   margin: 1rem;
 }
 
-.game-over div {
+.game-over > div {
+  position: absolute;
+  inset: 0;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  margin: 0 auto;
+  margin: auto;
   max-width: 500px;
 
   text-align: center;
@@ -38,6 +52,8 @@ const puzzleStore = usePuzzleStore();
   border-radius: 15px;
 
   background: white;
+
+  z-index: 15;
 }
 
 .game-over h1 {
@@ -47,6 +63,8 @@ const puzzleStore = usePuzzleStore();
 }
 
 .game-over p {
+  margin-bottom: 30px;
+
   font-size: 1.2rem;
 }
 
