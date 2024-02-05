@@ -5,18 +5,14 @@
       <h1>Game Over!</h1>
       <p>You lost the game because you made 3 mistakes.</p>
       <div>
-        <button @click="puzzleStore.fetchGame" class="new-game">
-          New Game
-        </button>
+        <NewGameBtn></NewGameBtn>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { usePuzzleStore } from "@/store";
-
-const puzzleStore = usePuzzleStore();
+import NewGameBtn from "./NewGameBtn.vue";
 </script>
 
 <style scoped>
@@ -66,23 +62,5 @@ const puzzleStore = usePuzzleStore();
   margin-bottom: 30px;
 
   font-size: 1.2rem;
-}
-
-.new-game {
-  padding: 0.5rem 1rem;
-
-  border: none;
-  border-radius: 100px;
-
-  background: rgb(72, 72, 255);
-  color: white;
-
-  cursor: pointer;
-  transition: all 300ms ease;
-}
-
-.new-game:hover,
-.new-game:focus {
-  background: blue;
 }
 </style>

@@ -5,18 +5,14 @@
       <h1>Congratulations!</h1>
       <p>You won the game</p>
       <div>
-        <button @click="puzzleStore.fetchGame" class="new-game">
-          New Game
-        </button>
+        <NewGameBtn></NewGameBtn>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { usePuzzleStore } from "@/store";
-
-const puzzleStore = usePuzzleStore();
+import NewGameBtn from "./NewGameBtn.vue";
 </script>
 
 <style scoped>
