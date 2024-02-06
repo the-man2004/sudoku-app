@@ -24,7 +24,9 @@ export const usePuzzleStore = defineStore("puzzleStore", {
       if (!this.puzzle.includes(0)) {
         console.log("You won!!!");
 
-        this.finnished = true;
+        setTimeout(() => {
+          this.finnished = true;
+        }, 1500);
       }
     },
 
@@ -40,7 +42,9 @@ export const usePuzzleStore = defineStore("puzzleStore", {
       this.mistakes++;
 
       if (this.mistakes >= 3) {
-        this.gameOver = true;
+        setTimeout(() => {
+          this.gameOver = true;
+        }, 1500);
       }
     },
 

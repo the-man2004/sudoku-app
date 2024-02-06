@@ -115,7 +115,7 @@ const handleBtnClick = (num) => {
 <style scoped>
 .game {
   padding: 0 1rem;
-  margin: 0 auto;
+  margin: auto;
   max-width: 500px;
 }
 
@@ -179,7 +179,7 @@ const handleBtnClick = (num) => {
   aspect-ratio: 1 / 1;
 
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
 
   border: 5px solid white;
   background: white;
