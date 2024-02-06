@@ -17,15 +17,42 @@
       </div>
     </div>
     <div class="numpad">
-      <button @click="handleBtnClick(1)">1</button>
-      <button @click="handleBtnClick(2)">2</button>
-      <button @click="handleBtnClick(3)">3</button>
-      <button @click="handleBtnClick(4)">4</button>
-      <button @click="handleBtnClick(5)">5</button>
-      <button @click="handleBtnClick(6)">6</button>
-      <button @click="handleBtnClick(7)">7</button>
-      <button @click="handleBtnClick(8)">8</button>
-      <button @click="handleBtnClick(9)">9</button>
+      <button @click="handleBtnClick(1)">
+        1
+        <span>{{ 9 - puzzleStore.occurrencesOfNumber["1"] }}</span>
+      </button>
+      <button @click="handleBtnClick(2)">
+        2
+        <span>{{ 9 - puzzleStore.occurrencesOfNumber["2"] }}</span>
+      </button>
+      <button @click="handleBtnClick(3)">
+        3
+        <span>{{ 9 - puzzleStore.occurrencesOfNumber["3"] }}</span>
+      </button>
+      <button @click="handleBtnClick(4)">
+        4
+        <span>{{ 9 - puzzleStore.occurrencesOfNumber["4"] }}</span>
+      </button>
+      <button @click="handleBtnClick(5)">
+        5
+        <span>{{ 9 - puzzleStore.occurrencesOfNumber["5"] }}</span>
+      </button>
+      <button @click="handleBtnClick(6)">
+        6
+        <span>{{ 9 - puzzleStore.occurrencesOfNumber["6"] }}</span>
+      </button>
+      <button @click="handleBtnClick(7)">
+        7
+        <span>{{ 9 - puzzleStore.occurrencesOfNumber["7"] }}</span>
+      </button>
+      <button @click="handleBtnClick(8)">
+        8
+        <span>{{ 9 - puzzleStore.occurrencesOfNumber["8"] }}</span>
+      </button>
+      <button @click="handleBtnClick(9)">
+        9
+        <span>{{ 9 - puzzleStore.occurrencesOfNumber["9"] }}</span>
+      </button>
     </div>
   </div>
 </template>
@@ -93,10 +120,10 @@ const showError = (item) => {
 };
 
 const handleBtnClick = (num) => {
-  const item = document.getElementById(puzzleStore.selectedItem.dataset.id);
-  const id = puzzleStore.selectedItem.dataset.id;
-
   if (puzzleStore.selectedItem !== null) {
+    const item = document.getElementById(puzzleStore.selectedItem.dataset.id);
+    const id = puzzleStore.selectedItem.dataset.id;
+
     if (puzzleStore.solutionArr[id] === num) {
       console.log("Correct!");
 
@@ -199,7 +226,11 @@ const handleBtnClick = (num) => {
 }
 
 .numpad button {
-  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 5px 0;
 
   font-size: 1.5rem;
   font-weight: 600;
@@ -216,6 +247,11 @@ const handleBtnClick = (num) => {
 .numpad button:hover,
 .numpad button:focus {
   background: blue;
+}
+
+.numpad button span {
+  font-size: 0.6em;
+  font-weight: 500;
 }
 
 @media (min-width: 500px) {

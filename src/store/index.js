@@ -18,6 +18,21 @@ export const usePuzzleStore = defineStore("puzzleStore", {
   getters: {
     puzzleArr: (state) => state.puzzle,
     solutionArr: (state) => state.solution,
+    occurrencesOfNumber: (state) => {
+      const counter = {};
+
+      state.puzzle.forEach((el) => {
+        if (counter[el]) {
+          counter[el] += 1;
+        } else {
+          counter[el] = 1;
+        }
+      });
+
+      console.log(counter);
+
+      return counter;
+    },
   },
   actions: {
     checkVictory() {
