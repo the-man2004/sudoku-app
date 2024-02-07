@@ -112,8 +112,18 @@ const handleBtnClick = (num) => {
     const item = document.getElementById(puzzleStore.selectedItem.dataset.id);
     const id = puzzleStore.selectedItem.dataset.id;
 
+    const items = [...document.querySelectorAll(".item")];
+
     if (puzzleStore.solutionArr[id] === num) {
       puzzleStore.addPuzzlePiece(id, num);
+
+      const filteredItems = items.filter((el) => +el.innerText === num);
+
+      filteredItems.forEach((el) => {
+        el.style.color = "white";
+        el.style.background = "rgb(72, 72, 255)";
+      });
+
       puzzleStore.checkVictory();
     } else {
       showError(item);
