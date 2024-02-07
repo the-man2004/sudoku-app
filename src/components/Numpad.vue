@@ -125,6 +125,17 @@ const handleBtnClick = (num) => {
     }
   }
 };
+
+// Listens for a number button click
+window.addEventListener("keydown", (event) => {
+  const allowedKeys = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+  if (allowedKeys.includes(event.key) && puzzleStore.selectedItem !== null) {
+    console.log(event.key);
+
+    handleBtnClick(+event.key);
+  }
+});
 </script>
 
 <style scoped>
