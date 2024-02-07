@@ -19,39 +19,75 @@
     <div class="numpad">
       <button @click="handleBtnClick(1)">
         1
-        <span>{{ 9 - puzzleStore.occurrencesOfNumber["1"] }}</span>
+        <span>{{
+          "1" in puzzleStore.occurrencesOfNumber
+            ? 9 - puzzleStore.occurrencesOfNumber["1"]
+            : 9
+        }}</span>
       </button>
       <button @click="handleBtnClick(2)">
         2
-        <span>{{ 9 - puzzleStore.occurrencesOfNumber["2"] }}</span>
+        <span>{{
+          "2" in puzzleStore.occurrencesOfNumber
+            ? 9 - puzzleStore.occurrencesOfNumber["2"]
+            : 9
+        }}</span>
       </button>
       <button @click="handleBtnClick(3)">
         3
-        <span>{{ 9 - puzzleStore.occurrencesOfNumber["3"] }}</span>
+        <span>{{
+          "3" in puzzleStore.occurrencesOfNumber
+            ? 9 - puzzleStore.occurrencesOfNumber["3"]
+            : 9
+        }}</span>
       </button>
       <button @click="handleBtnClick(4)">
         4
-        <span>{{ 9 - puzzleStore.occurrencesOfNumber["4"] }}</span>
+        <span>{{
+          "4" in puzzleStore.occurrencesOfNumber
+            ? 9 - puzzleStore.occurrencesOfNumber["4"]
+            : 9
+        }}</span>
       </button>
       <button @click="handleBtnClick(5)">
         5
-        <span>{{ 9 - puzzleStore.occurrencesOfNumber["5"] }}</span>
+        <span>{{
+          "5" in puzzleStore.occurrencesOfNumber
+            ? 9 - puzzleStore.occurrencesOfNumber["5"]
+            : 9
+        }}</span>
       </button>
       <button @click="handleBtnClick(6)">
         6
-        <span>{{ 9 - puzzleStore.occurrencesOfNumber["6"] }}</span>
+        <span>{{
+          "6" in puzzleStore.occurrencesOfNumber
+            ? 9 - puzzleStore.occurrencesOfNumber["6"]
+            : 9
+        }}</span>
       </button>
       <button @click="handleBtnClick(7)">
         7
-        <span>{{ 9 - puzzleStore.occurrencesOfNumber["7"] }}</span>
+        <span>{{
+          "7" in puzzleStore.occurrencesOfNumber
+            ? 9 - puzzleStore.occurrencesOfNumber["7"]
+            : 9
+        }}</span>
       </button>
       <button @click="handleBtnClick(8)">
         8
-        <span>{{ 9 - puzzleStore.occurrencesOfNumber["8"] }}</span>
+        <span>{{
+          "8" in puzzleStore.occurrencesOfNumber
+            ? 9 - puzzleStore.occurrencesOfNumber["8"]
+            : 9
+        }}</span>
       </button>
       <button @click="handleBtnClick(9)">
         9
-        <span>{{ 9 - puzzleStore.occurrencesOfNumber["9"] }}</span>
+        <span>{{
+          "9" in puzzleStore.occurrencesOfNumber
+            ? 9 - puzzleStore.occurrencesOfNumber["9"]
+            : 9
+        }}</span>
       </button>
     </div>
   </div>
