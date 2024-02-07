@@ -113,13 +113,9 @@ const handleBtnClick = (num) => {
     const id = puzzleStore.selectedItem.dataset.id;
 
     if (puzzleStore.solutionArr[id] === num) {
-      console.log("Correct!");
-
       puzzleStore.addPuzzlePiece(id, num);
       puzzleStore.checkVictory();
     } else {
-      console.log("Wrong!");
-
       showError(item);
       puzzleStore.increaseMistakes();
     }
@@ -131,8 +127,6 @@ window.addEventListener("keydown", (event) => {
   const allowedKeys = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
   if (allowedKeys.includes(event.key) && puzzleStore.selectedItem !== null) {
-    console.log(event.key);
-
     handleBtnClick(+event.key);
   }
 });

@@ -63,25 +63,8 @@ import NewGameBtn from "./NewGameBtn.vue";
 
 .congratulations p {
   margin-bottom: 30px;
+  padding: 0 0.5rem;
 
   font-size: 1.2rem;
-}
-
-.new-game {
-  padding: 0.5rem 1rem;
-
-  border: none;
-  border-radius: 100px;
-
-  background: rgb(72, 72, 255);
-  color: white;
-
-  cursor: pointer;
-  transition: all 300ms ease;
-}
-
-.new-game:hover,
-.new-game:focus {
-  background: blue;
 }
 </style>
