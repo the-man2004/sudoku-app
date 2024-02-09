@@ -10,6 +10,7 @@ export const usePuzzleStore = defineStore("puzzleStore", {
       difficulty: null,
 
       mistakes: null,
+      hasHint: true,
       gameOver: false,
       finnished: false,
       selectedItem: null,
@@ -35,6 +36,14 @@ export const usePuzzleStore = defineStore("puzzleStore", {
     },
   },
   actions: {
+    fillHint() {
+      const id = this.selectedItem.dataset.id;
+
+      this.puzzle[id] = this.solution[id];
+
+      this.hasHint = false;
+    },
+
     checkVictory() {
       if (!this.puzzle.includes(0)) {
         console.log("You won!!!");
@@ -74,6 +83,7 @@ export const usePuzzleStore = defineStore("puzzleStore", {
     async fetchGame() {
       this.isLoading = true;
       this.mistakes = 0;
+      this.hasHint = true;
       this.gameOver = false;
       this.finnished = false;
 

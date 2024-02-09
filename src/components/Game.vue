@@ -16,6 +16,8 @@
         {{ number === 0 ? "" : number }}
       </div>
     </div>
+    <!-- Hit -->
+    <Hint></Hint>
     <!-- Placeholder -->
     <Numpad></Numpad>
   </div>
@@ -24,6 +26,7 @@
 <script setup>
 import { usePuzzleStore } from "../store/index";
 import Numpad from "./Game/Numpad.vue";
+import Hint from "./Game/Hint.vue";
 
 const puzzleStore = usePuzzleStore();
 
