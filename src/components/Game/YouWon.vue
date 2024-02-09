@@ -1,9 +1,9 @@
 <template>
   <div class="backdrop"></div>
-  <div class="game-over">
+  <div class="congratulations">
     <div>
-      <h1>Game Over!</h1>
-      <p>You lost the game because you made 3 mistakes.</p>
+      <h1>Congratulations!</h1>
+      <p>You won the game</p>
       <div>
         <NewGameBtn></NewGameBtn>
       </div>
@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import NewGameBtn from "./NewGameBtn.vue";
+import NewGameBtn from "../NewGameBtn.vue";
 </script>
 
 <style scoped>
@@ -26,12 +26,12 @@ import NewGameBtn from "./NewGameBtn.vue";
   z-index: 10;
 }
 
-.game-over {
+.congratulations {
   padding: 0 1rem;
   margin: 1rem;
 }
 
-.game-over > div {
+.congratulations > div {
   position: absolute;
   inset: 1rem;
 
@@ -48,18 +48,20 @@ import NewGameBtn from "./NewGameBtn.vue";
   border-radius: 15px;
 
   background: white;
+  border: 5px solid rgb(135, 199, 40);
 
   z-index: 15;
 }
 
-.game-over h1 {
+.congratulations h1 {
   margin-bottom: 30px;
 
+  color: rgb(135, 199, 40);
   font-size: 2rem;
   font-weight: 800;
 }
 
-.game-over p {
+.congratulations p {
   margin-bottom: 30px;
   padding: 0 0.5rem;
 

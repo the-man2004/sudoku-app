@@ -23,7 +23,7 @@
 
 <script setup>
 import { usePuzzleStore } from "../store/index";
-import Numpad from "./Numpad.vue";
+import Numpad from "./Game/Numpad.vue";
 
 const puzzleStore = usePuzzleStore();
 

@@ -12,8 +12,8 @@ import { onMounted } from "vue";
 import { usePuzzleStore } from "./store/index";
 import Header from "./components/Header.vue";
 import Game from "./components/Game.vue";
-import GameOver from "./components/GameOver.vue";
-import YouWon from "./components/YouWon.vue";
+import GameOver from "./components/Game/GameOver.vue";
+import YouWon from "./components/Game/YouWon.vue";
 
 const puzzleStore = usePuzzleStore();
 

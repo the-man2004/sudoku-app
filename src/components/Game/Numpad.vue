@@ -90,7 +90,6 @@ const removeStyling = () => {
   items.forEach((el) => {
     el.style.color = "black";
     el.style.background = "white";
-    // el.style.border = "none";
   });
 };
 
