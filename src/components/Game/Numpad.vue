@@ -126,6 +126,7 @@ const handleBtnClick = (num) => {
       puzzleStore.checkVictory();
     } else {
       showError(item);
+      puzzleStore.setSelectedItem(null);
       puzzleStore.increaseMistakes();
     }
   }
