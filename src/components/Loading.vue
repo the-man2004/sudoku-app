@@ -31,7 +31,6 @@
   position: absolute;
   width: 16px;
   height: 16px;
-  border-radius: 50%;
   background: #fff;
   animation: lds-grid 1.2s linear infinite;
 }
