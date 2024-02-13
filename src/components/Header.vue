@@ -4,7 +4,7 @@
       <span class="logo">Sudoki</span>
       <div class="navigation-buttons">
         <NewGameBtn></NewGameBtn>
-        <button class="material-symbols-outlined info">info</button>
+        <info></info>
       </div>
     </nav>
   </div>
@@ -12,6 +12,7 @@
 
 <script setup>
 import NewGameBtn from "./NewGameBtn.vue";
+import Info from "./Info/Info.vue";
 </script>
 
 <style scoped>
@@ -62,11 +63,6 @@ button {
 .new-game:hover,
 .new-game:focus {
   background: blue;
-}
-
-.info {
-  font-size: 2rem;
-  background: none;
 }
 
 @media (min-width: 900px) {
