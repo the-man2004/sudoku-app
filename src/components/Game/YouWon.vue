@@ -17,7 +17,7 @@ import NewGameBtn from "../NewGameBtn.vue";
 
 <style scoped>
 .backdrop {
-  position: absolute;
+  position: fixed;
   inset: 0;
 
   backdrop-filter: blur(2px);
@@ -32,7 +32,7 @@ import NewGameBtn from "../NewGameBtn.vue";
 }
 
 .congratulations > div {
-  position: absolute;
+  position: fixed;
   inset: 1rem;
 
   display: flex;
@@ -42,9 +42,9 @@ import NewGameBtn from "../NewGameBtn.vue";
 
   margin: auto;
   max-width: 500px;
+  max-height: 500px;
 
   text-align: center;
-  aspect-ratio: 1 / 1;
   border-radius: 15px;
 
   background: white;
