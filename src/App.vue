@@ -1,5 +1,6 @@
 <template>
   <Header></Header>
+  <loading v-if="puzzleStore.isLoading === true"></loading>
   <Game
     v-if="puzzleStore.isLoading === false && puzzleStore.puzzle !== null"
   ></Game>
@@ -12,6 +13,7 @@ import { onMounted } from "vue";
 import { usePuzzleStore } from "./store/index";
 import Header from "./components/Header.vue";
 import Game from "./components/Game.vue";
+import Loading from "./components/Loading.vue";
 import GameOver from "./components/Game/GameOver.vue";
 import YouWon from "./components/Game/YouWon.vue";
 
