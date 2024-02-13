@@ -147,7 +147,7 @@ window.addEventListener("keydown", (event) => {
   margin: 15px 0;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  gap: 5px;
+  gap: 3px;
 }
 
 .numpad button {
@@ -177,5 +177,14 @@ window.addEventListener("keydown", (event) => {
 .numpad button span {
   font-size: 0.6em;
   font-weight: 500;
+}
+
+@media (min-width: 500px) {
+  .numpad {
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 5px;
+  }
 }
 </style>
