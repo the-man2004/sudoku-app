@@ -55,6 +55,10 @@ const handleHintClick = () => {
 }
 
 .hint-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   position: absolute;
   top: -10px;
   right: -10px;
@@ -63,7 +67,7 @@ const handleHintClick = () => {
   height: 25px;
   border-radius: 100px;
 
-  text-align: center;
+  /* text-align: center; */
 
   color: white;
   background: blue;
