@@ -144,7 +144,7 @@ window.addEventListener("keydown", (event) => {
 
 <style scoped>
 .numpad {
-  margin: 15px 0;
+  padding: 1rem 0 2rem 0;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   gap: 3px;
