@@ -4,37 +4,43 @@
       info
     </button>
   </div>
-  <div v-if="isModalOpen === true" @click="toggleModal" class="backdrop"></div>
-  <div v-if="isModalOpen === true" class="info-modal">
-    <article>
-      <h2>About Sudoki</h2>
-      <p>
-        The popular Japanese puzzle game Sudoku is based on the logical
-        placement of numbers. An online game of logic, Sudoku doesn’t require
-        any calculation nor special math skills; all that is needed are brains
-        and concentration.
-      </p>
-    </article>
-    <article>
-      <h2>How to play Sudoki</h2>
-      <p>
-        The goal of Sudoku is to fill in a 9×9 grid with digits so that each
-        column, row, and 3×3 section contain the numbers between 1 to 9. At the
-        beginning of the game, the 9×9 grid will have some of the squares filled
-        in. Your job is to use logic to fill in the missing digits and complete
-        the grid. Don’t forget, a move is incorrect if:
-      </p>
-      <ul>
-        <li>Any row contains more than one of the same number from 1 to 9</li>
-        <li>
-          Any column contains more than one of the same number from 1 to 9
-        </li>
-        <li>
-          Any 3×3 grid contains more than one of the same number from 1 to 9
-        </li>
-      </ul>
-    </article>
-  </div>
+  <teleport to="body">
+    <div
+      v-if="isModalOpen === true"
+      @click="toggleModal"
+      class="backdrop"
+    ></div>
+    <div v-if="isModalOpen === true" class="info-modal">
+      <article>
+        <h2>About Sudoki</h2>
+        <p>
+          The popular Japanese puzzle game Sudoku is based on the logical
+          placement of numbers. An online game of logic, Sudoku doesn’t require
+          any calculation nor special math skills; all that is needed are brains
+          and concentration.
+        </p>
+      </article>
+      <article>
+        <h2>How to play Sudoki</h2>
+        <p>
+          The goal of Sudoku is to fill in a 9×9 grid with digits so that each
+          column, row, and 3×3 section contain the numbers between 1 to 9. At
+          the beginning of the game, the 9×9 grid will have some of the squares
+          filled in. Your job is to use logic to fill in the missing digits and
+          complete the grid. Don’t forget, a move is incorrect if:
+        </p>
+        <ul>
+          <li>Any row contains more than one of the same number from 1 to 9</li>
+          <li>
+            Any column contains more than one of the same number from 1 to 9
+          </li>
+          <li>
+            Any 3×3 grid contains more than one of the same number from 1 to 9
+          </li>
+        </ul>
+      </article>
+    </div>
+  </teleport>
 </template>
 
 <script setup>
@@ -72,7 +78,7 @@ const toggleModal = () => {
   position: fixed;
   inset: 1rem;
 
-  padding: 0 1rem;
+  padding: 1rem 2rem;
   margin: auto;
 
   display: flex;
