@@ -1,6 +1,8 @@
 <template>
-  <div class="backdrop"></div>
-  <div class="game-over">
+  <transition>
+    <div v-if="puzzleStore.gameOver === true" class="backdrop"></div>
+  </transition>
+  <div v-if="puzzleStore.gameOver === true" class="game-over">
     <div>
       <h1>Game Over!</h1>
       <p>You lost the game because you made 3 mistakes.</p>
@@ -67,5 +69,16 @@ const puzzleStore = usePuzzleStore();
   padding: 0 0.5rem;
 
   font-size: 1.2rem;
+}
+
+/* Transiion styles */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

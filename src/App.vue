@@ -4,8 +4,8 @@
   <Game
     v-if="puzzleStore.isLoading === false && puzzleStore.puzzle !== null"
   ></Game>
-  <GameOver v-if="puzzleStore.gameOver === true"></GameOver>
-  <YouWon v-if="puzzleStore.finnished === true"></YouWon>
+  <GameOver></GameOver>
+  <YouWon></YouWon>
 </template>
 
 <script setup>

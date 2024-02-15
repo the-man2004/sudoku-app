@@ -1,6 +1,8 @@
 <template>
-  <div class="backdrop"></div>
-  <div class="congratulations">
+  <transition>
+    <div v-if="puzzleStore.finnished === true" class="backdrop"></div>
+  </transition>
+  <div v-if="puzzleStore.finnished === true" class="congratulations">
     <div>
       <h1>Congratulations!</h1>
       <p>You won the game</p>
@@ -13,6 +15,9 @@
 
 <script setup>
 import NewGameBtn from "../NewGameBtn.vue";
+import { usePuzzleStore } from "../../store/index";
+
+const puzzleStore = usePuzzleStore();
 </script>
 
 <style scoped>
@@ -66,5 +71,16 @@ import NewGameBtn from "../NewGameBtn.vue";
   padding: 0 0.5rem;
 
   font-size: 1.2rem;
+}
+
+/* Transiion styles */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
