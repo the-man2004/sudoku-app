@@ -13,6 +13,9 @@
 
 <script setup>
 import NewGameBtn from "../NewGameBtn.vue";
+import { usePuzzleStore } from "@/store";
+
+const puzzleStore = usePuzzleStore();
 </script>
 
 <style scoped>
