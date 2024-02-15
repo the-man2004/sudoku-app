@@ -77,7 +77,7 @@ const handleItemClick = (event) => {
 
 <style scoped>
 .game {
-  padding: 0 3rem;
+  padding: 0 1rem;
   margin: auto;
   max-width: 500px;
 }
@@ -99,7 +99,7 @@ const handleItemClick = (event) => {
   grid-template-columns: repeat(9, 1fr);
   gap: 3px;
 
-  aspect-ratio: 1 / 1;
+  /* aspect-ratio: 1 / 1; */
   border: 3px solid black;
   z-index: 10;
 
@@ -135,13 +135,16 @@ const handleItemClick = (event) => {
 }
 
 .game-board .item {
+  padding: 0;
+  margin: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
   aspect-ratio: 1 / 1;
 
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 700;
 
   border: 3px solid white;
@@ -164,9 +167,19 @@ const handleItemClick = (event) => {
   }
 
   .game-board .item {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 
     border: 5px solid white;
+  }
+}
+
+@media (max-width: 500px) and (min-aspect-ratio: 2 / 3) {
+  .game {
+    padding: 0 3rem;
+  }
+
+  .game-board .item {
+    font-size: 1rem;
   }
 }
 </style>
