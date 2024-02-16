@@ -19,6 +19,11 @@ export const usePuzzleStore = defineStore("puzzleStore", {
   getters: {
     puzzleArr: (state) => state.puzzle,
     solutionArr: (state) => state.solution,
+    mistakesCount: (state) => {
+      return state.mistakes === 1
+        ? `${state.mistakes} mistake`
+        : `${state.mistakes} mistakes`;
+    },
     occurrencesOfNumber: (state) => {
       const counter = {};
 
@@ -29,8 +34,6 @@ export const usePuzzleStore = defineStore("puzzleStore", {
           counter[el] = 1;
         }
       });
-
-      console.log(counter);
 
       return counter;
     },

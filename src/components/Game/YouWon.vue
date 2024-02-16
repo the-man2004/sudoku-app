@@ -5,7 +5,7 @@
   <div v-if="puzzleStore.finnished === true" class="congratulations">
     <div>
       <h1>Congratulations!</h1>
-      <p>You won the game</p>
+      <p>You won the Game with {{ puzzleStore.mistakesCount }}!</p>
       <div>
         <NewGameBtn></NewGameBtn>
       </div>

@@ -1,84 +1,27 @@
 <template>
   <div class="numpad">
-    <button @click="handleBtnClick(1)">
-      1
-      <span>{{
-        "1" in puzzleStore.occurrencesOfNumber
-          ? 9 - puzzleStore.occurrencesOfNumber["1"]
-          : 9
-      }}</span>
-    </button>
-    <button @click="handleBtnClick(2)">
-      2
-      <span>{{
-        "2" in puzzleStore.occurrencesOfNumber
-          ? 9 - puzzleStore.occurrencesOfNumber["2"]
-          : 9
-      }}</span>
-    </button>
-    <button @click="handleBtnClick(3)">
-      3
-      <span>{{
-        "3" in puzzleStore.occurrencesOfNumber
-          ? 9 - puzzleStore.occurrencesOfNumber["3"]
-          : 9
-      }}</span>
-    </button>
-    <button @click="handleBtnClick(4)">
-      4
-      <span>{{
-        "4" in puzzleStore.occurrencesOfNumber
-          ? 9 - puzzleStore.occurrencesOfNumber["4"]
-          : 9
-      }}</span>
-    </button>
-    <button @click="handleBtnClick(5)">
-      5
-      <span>{{
-        "5" in puzzleStore.occurrencesOfNumber
-          ? 9 - puzzleStore.occurrencesOfNumber["5"]
-          : 9
-      }}</span>
-    </button>
-    <button @click="handleBtnClick(6)">
-      6
-      <span>{{
-        "6" in puzzleStore.occurrencesOfNumber
-          ? 9 - puzzleStore.occurrencesOfNumber["6"]
-          : 9
-      }}</span>
-    </button>
-    <button @click="handleBtnClick(7)">
-      7
-      <span>{{
-        "7" in puzzleStore.occurrencesOfNumber
-          ? 9 - puzzleStore.occurrencesOfNumber["7"]
-          : 9
-      }}</span>
-    </button>
-    <button @click="handleBtnClick(8)">
-      8
-      <span>{{
-        "8" in puzzleStore.occurrencesOfNumber
-          ? 9 - puzzleStore.occurrencesOfNumber["8"]
-          : 9
-      }}</span>
-    </button>
-    <button @click="handleBtnClick(9)">
-      9
-      <span>{{
-        "9" in puzzleStore.occurrencesOfNumber
-          ? 9 - puzzleStore.occurrencesOfNumber["9"]
-          : 9
-      }}</span>
+    <button
+      v-for="(_, index) in 9"
+      :key="index"
+      @click="handleBtnClick(index + 1)"
+      :class="{ invisible: 9 - occurrence[index + 1] === 0 }"
+    >
+      {{ index + 1 }}
+      <span>
+        {{ `${index + 1}` in occurrence ? 9 - occurrence[index + 1] : 9 }}
+      </span>
     </button>
   </div>
 </template>
 
 <script setup>
 import { usePuzzleStore } from "@/store";
+import { computed } from "vue";
 
 const puzzleStore = usePuzzleStore();
+
+const occurrence = computed(() => puzzleStore.occurrencesOfNumber);
+console.log(occurrence.value[1]);
 
 const removeStyling = () => {
   const gameBoard = document.querySelector(".game-board");
@@ -148,6 +91,8 @@ window.addEventListener("keydown", (event) => {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   gap: 3px;
+
+  overflow-y: hidden;
 }
 
 .numpad button {
@@ -166,7 +111,7 @@ window.addEventListener("keydown", (event) => {
   color: white;
 
   cursor: pointer;
-  transition: all 300ms ease;
+  transition: color 300ms ease;
 }
 
 .numpad button:hover,
@@ -179,6 +124,12 @@ window.addEventListener("keydown", (event) => {
   font-weight: 500;
 }
 
+/* Invisible styles */
+.invisible {
+  transform: translateY(100px);
+}
+
+/* Media query */
 @media (min-width: 500px) {
   .numpad {
     margin: 15px 0;
